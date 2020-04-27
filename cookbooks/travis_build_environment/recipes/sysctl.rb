@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 execute 'update sysctl travis-shm' do
-  command 'sysctl -p /etc/sysctl.d/30-travis-shm.conf'
+  command 'sysctl -p -e /etc/sysctl.d/30-travis-shm.conf'
   action :nothing
 end
 
@@ -14,7 +14,7 @@ file '/etc/sysctl.d/30-travis-shm.conf' do
 end
 
 execute 'update sysctl travis-disable-ipv6' do
-  command 'sysctl -p /etc/sysctl.d/99-travis-disable-ipv6.conf'
+  command 'sysctl -p -e /etc/sysctl.d/99-travis-disable-ipv6.conf'
   action :nothing
 end
 
@@ -31,7 +31,7 @@ file '/etc/sysctl.d/99-travis-disable-ipv6.conf' do
 end
 
 execute 'update sysctl travis-enable-ipv4-forwarding' do
-  command 'sysctl -p /etc/sysctl.d/99-travis-enable-ipv4-forwarding.conf'
+  command 'sysctl -p -e /etc/sysctl.d/99-travis-enable-ipv4-forwarding.conf'
   action :nothing
 end
 
